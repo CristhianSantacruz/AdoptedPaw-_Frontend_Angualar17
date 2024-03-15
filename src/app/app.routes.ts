@@ -6,11 +6,15 @@ import { RegisterComponent } from './features/auth/pages/register/register.compo
 import { HomeComponent } from './features/home/home.component';
 import { HomepageComponent } from './features/home/pages/homepage/homepage.component';
 import { RegisterDogComponent } from './features/home/pages/register-dog/register-dog.component';
+import {authGuardWithAuth, authGuardWithoutAuth} from "./core/guards/auth-guard.guard";
+
 
 export const routes: Routes = [
+  {path:'',redirectTo:"/authentication/login",pathMatch:"full"},
   {
     path: 'authentication',
     component: FeaturesComponent,
+    canActivate: [authGuardWithAuth],
     children: [
       {
         path: 'login',
@@ -27,6 +31,7 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate : [authGuardWithoutAuth],
     children: [
       {
         path: 'main',
