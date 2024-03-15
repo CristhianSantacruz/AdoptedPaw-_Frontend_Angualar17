@@ -7,6 +7,7 @@ import { HomeComponent } from './features/home/home.component';
 import { HomepageComponent } from './features/home/pages/homepage/homepage.component';
 import { RegisterDogComponent } from './features/home/pages/register-dog/register-dog.component';
 import {authGuardWithAuth, authGuardWithoutAuth} from "./core/guards/auth-guard.guard";
+import {AdoptionComponent} from "./features/home/pages/adoption/adoption.component";
 
 
 export const routes: Routes = [
@@ -43,6 +44,11 @@ export const routes: Routes = [
         title: 'Register Dog',
         component: RegisterDogComponent,
       },
+      {
+        path : 'adoption',
+        title :"Adoptions Paw",
+        component:AdoptionComponent
+      }
     ],
   },
 ];
