@@ -68,4 +68,5 @@ export class LoginComponent {
     await this.router.navigateByUrl("/home/main")
   }
 
+    protected readonly onkeyup = onkeyup;
 }

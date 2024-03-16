@@ -4,10 +4,13 @@ import {UserService} from "../../../../core/service/user.service";
 import {PetAnimalDto} from "../../../../core/dto/PetAnimalDto";
 import Swal from "sweetalert2";
 import {environment} from "../../../../../environments/environment.development";
+import {BannerComponent} from "../../components/banner/banner.component";
 @Component({
   selector: 'app-register-dog',
   standalone: true,
-  imports: [],
+  imports: [
+    BannerComponent
+  ],
   templateUrl: './register-dog.component.html',
   styleUrl: './register-dog.component.css'
 })
@@ -17,7 +20,7 @@ export class RegisterDogComponent {
     public userName : string = ""
     public userEmail : string = ""
     public listRegisterDog : PetAnimalDto[] = []
-  public baseUrlImage : string = environment.baseUrl +"/file/"
+    public baseUrlImage : string = environment.baseUrl +"/file/"
     constructor(private tokenService : TokenService, private userService : UserService){
       this.userId = tokenService.getInfoToken().userId
       this.userName = tokenService.getInfoToken().fullName
