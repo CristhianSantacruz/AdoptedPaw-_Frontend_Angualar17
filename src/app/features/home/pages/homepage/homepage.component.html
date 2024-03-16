@@ -15,7 +15,7 @@
                     d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z">
                   </path>
                 </svg>
-                {{pet.status.toString().toLocaleUpperCase()}}
+                {{pet.status.toString().toLocaleUpperCase()}} PARA ADOPCION
               </p>
             }@else {
             <p class="text-sm text-red-400 flex items-center">
@@ -25,31 +25,40 @@
                   d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z">
                 </path>
               </svg>
-            {{pet.status.toString().toLocaleUpperCase()}}
+            EN {{pet.status.toString().toLocaleUpperCase()}} DE ADOPCION
             </p>
             }
-            <p class="text-gray-900 font-bold text-lg mb-2 hover:text-indigo-600 inline-block">{{pet.name}}</p>
+            <p class="text-gray-900 font-bold text-lg mb-2 hover:text-indigo-600 inline-block">{{pet.name}} | {{pet.size}}</p>
             <p class="text-gray-700 text-sm">{{pet.description}}</p>
           </div>
-          <div class="flex items-center">
-            <a
-              href="#"><img class="w-10 h-10 rounded-full mr-4" src="https://tailwindcss.com/img/jonathan.jpg" alt="Avatar of Jonathan Reinink"></a>
-            <div class="text-sm">
-              <a href="#" class="text-gray-900 font-semibold leading-none hover:text-indigo-600">{{pet.userName}}</a>
-              <p class="text-gray-600">Aug 18</p>
-            </div>
+
+          <div class="text-gray-700 text-sm mt-2 pt-2 pb-2">
+            <p><span class="font-bold">Raza:</span> {{pet.raze}}</p>
+            <p><span class="font-bold">Contacto:</span> {{pet.contactPet}}</p>
+            <p><span class="font-bold">Tipo de mascota:</span> {{pet.petType}}</p>
           </div>
+
+          <div class="flex items-center justify-between md:justify-center mb-3 md:flex-col">
+            <div class="flex items-center ">
+              <img class="w-10 h-10 rounded-full mr-4" src="https://ui-avatars.com/api?name={{pet.userName}}" alt="Avatar of Jonathan Reinink">
+              <div class="text-sm">
+                <a href="#" class="text-gray-900 font-semibold leading-none hover:text-indigo-600">{{pet.userName}}</a>
+                <p class="text-gray-600">{{pet.userEmail}}</p>
+              </div>
+            </div>
+
+          </div>
+          @if(pet.status=="DISPONIBLE"){
+            <div class="ml-auto flex justify-end">
+              <button class="p-2 text-white bg-green-500 hover:bg-green-600 rounded-2xl shadow-xl">
+                Adoptar
+              </button>
+            </div>}
         </div>
       </div>
     }
   </div>
 </div>
-<!--
-@for(pet of listPets ; track pet.id){
-  <p>homepage works!</p>
-  <p>{{pet.imageForPet?.id}}</p>
-  <p>{{baseUrl+"/file/"+pet.imageForPet?.id}}</p>
-  <img [src]="this.baseUrlImage+pet.imageForPet?.id" [alt]="pet.imageForPet?.name"/>
-} -->
+
 
 
