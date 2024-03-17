@@ -16,10 +16,11 @@ import {environment} from "../../../../../environments/environment.development";
   styleUrl: './adoption.component.css'
 })
 export class AdoptionComponent {
-
+  public userName : string = ""
   public baseUrlImage : string = environment.baseUrl +"/file/"
   public listAdoptionPets : AdoptionResponseDto[] = []
   constructor(private tokenService : TokenService,private adoptionService: AdoptionService) {
+    this.userName = this.tokenService.getInfoToken().fullName
      this.adoptionService.getAllAdoptionByUser(tokenService.getInfoToken().userId)
        .subscribe({
          next : value => {
