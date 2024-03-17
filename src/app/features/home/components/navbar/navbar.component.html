@@ -12,9 +12,11 @@
           <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12 ">
             <li><a class="hover:text-green-400  font-bold "  routerLink = "/home/main"
                    routerLinkActive = "active">Home 🐶</a></li>
-            <li><a class="hover:text-green-400  "  routerLink="/home/registerdog">Mis Registros</a></li>
+            <li><a class="hover:text-green-400  "  routerLink="/home/registers">Mis Registros</a></li>
             <li><a class="hover:text-green-400" routerLink = "/home/adoption"
                    routerLinkActive = "active">Mis adopciones</a></li>
+            <li><a class="hover:text-green-400 flex-col" routerLink = "/home/register-dog"
+                   routerLinkActive = "active">Registrar 🐕</a></li>
           </ul>
           <!-- Header Icons -->
           <div class="hidden xl:flex items-center space-x-5 items-center">
@@ -48,7 +50,7 @@
         >
         <a
           (click)="toggleMenu()"
-          routerLink = "/home/registerdog"
+          routerLink = "/home/registers"
           routerLinkActive = "active"
           class="block px-3 py-2 rounded-2xl font-semibold text-lg text-purple-900 transition-colors hover:text-white hover:bg-rose-500 hover:rounded">
           Mis Registros</a
