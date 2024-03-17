@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     FormsModule,
     HttpClient,
     HttpClientModule,
-    provideClientHydration()
+
 
   ]
 };
