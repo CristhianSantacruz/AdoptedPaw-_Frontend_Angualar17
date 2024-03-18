@@ -14,14 +14,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Screenshot (21)](https://github.com/CristhianSantacruz/AdoptedPaw-_Frontend_Angualar17/assets/117329019/0608e251-1f16-4a7f-9784-e90e135052f7)
+![Screenshot (22)](https://github.com/CristhianSantacruz/AdoptedPaw-_Frontend_Angualar17/assets/117329019/e8f785b2-e93c-4c03-9be4-f5116cdd9886)
+![Screenshot (23)](https://github.com/CristhianSantacruz/AdoptedPaw-_Frontend_Angualar17/assets/117329019/4afec008-59c4-4502-9c05-c97e1f485cca)
+![Screenshot (24)](https://github.com/CristhianSantacruz/AdoptedPaw-_Frontend_Angualar17/assets/117329019/5b9f5e91-3307-46bd-9c11-e63d27a6ab7f)
