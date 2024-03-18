@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {RouterLink,Router} from "@angular/router";
+import {RouterLink, Router, RouterLinkActive} from "@angular/router";
 import {TokenService} from "../../../../core/service/token.service";
 import {AuthLoginDto} from "../../../../core/dto/AuthDto";
 import {lastValueFrom} from "rxjs";
@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, RouterLink, ReactiveFormsModule],
+  imports: [FormsModule, RouterLink, ReactiveFormsModule, RouterLinkActive],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -68,5 +68,7 @@ export class LoginComponent {
     await this.router.navigateByUrl("/home/main")
   }
 
-    protected readonly onkeyup = onkeyup;
+    public createAccount(){
+      this.router.navigateByUrl('/authentication/register').then()
+    }
 }

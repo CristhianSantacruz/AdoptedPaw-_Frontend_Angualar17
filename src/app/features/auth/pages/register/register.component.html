@@ -1,1 +1,107 @@
-<p>register works!</p>
+
+<!-- component -->
+<body class=" bg-gray-400 flex justify-center items-center min-h-screen">
+<!-- Container -->
+<div class="container mx-auto ">
+  <div class="flex justify-center px-6 my-12">
+    <!-- Row -->
+    <div class="w-full xl:w-3/4 flex">
+      <!-- Col -->
+      <div
+        class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
+        style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800')"
+      ></div>
+      <!-- Col -->
+      <div class="w-full lg:w-1/2 bg-white p-20 rounded-lg lg:rounded-l-none">
+        <h3 class="pt-4 text-2xl text-center justify-center flex">Crear Cuenta</h3>
+        <form [formGroup]="userRegisterForm"  class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+          <div class="mb-4">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="dni">
+              Cedula
+            </label>
+            <input
+              class="w-full px-3 py-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+              id="dni"
+              type="text"
+              placeholder="0943214500"
+              formControlName="userDni"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="name">
+              Nombre Completo
+            </label>
+            <input
+              class="w-full px-3 py-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+              id="name"
+              type="text"
+              placeholder="Cristhian Santacruz"
+              formControlName="userName"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+              Email
+            </label>
+            <input
+              class="w-full px-3 py-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+              id="email"
+              type="text"
+              placeholder="example@gmail.com"
+              formControlName="userEmail"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="phone">
+              Telefono
+            </label>
+            <input
+              class="w-full px-3 py-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+              id="phone"
+              type="text"
+              placeholder="0943215411"
+              formControlName="userPhone"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+              Password
+            </label>
+            <input
+              class="w-full px-3 py-3 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+              id="password"
+              type="password"
+              placeholder="******************"
+              formControlName="userPassword"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="confirm">
+              Confirm Password
+            </label>
+            <input
+              class="w-full px-3 py-3 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+              id="confirm"
+              type="password"
+              placeholder="******************"
+              formControlName="userConfirmPassword"
+            />
+          </div>
+          <div class="mb-6 text-center">
+            <button
+                    (click)="registerUser()"
+                    class="w-full px-4 py-2 font-bold text-white bg-rose-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                    type="button"
+            >
+              Register
+            </button>
+          </div>
+          <div class="mt-2 tex-center pt-3">
+            <button (click)="signIn()" class=" px-6 py-2  shadow-xl text-white  hover:bg-sky-700 bg-rose-400 rounded-2xl "> Login </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

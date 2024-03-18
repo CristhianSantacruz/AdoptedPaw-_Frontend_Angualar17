@@ -6,7 +6,3 @@ export interface AuthLoginDto {
 export interface AuthResponseDto {
   jwt : string
 }
-
-export interface RegisterDto {
-
-}

@@ -6,3 +6,11 @@ export interface UserDto {
   rol : string,
   userId : string,
 }
+
+export interface UserSaveDto{
+  dni : string
+  fullName : string,
+  email : string,
+  phone : string,
+  password : string,
+}
