@@ -63,6 +63,14 @@
           Mis adopciones</a
         >
         <a
+          (click)="toggleMenu()"
+          routerLink = "/home/register-dog"
+          routerLinkActive = "active"
+          class="block px-3 py-2 rounded-2xl font-semibold text-lg text-purple-900 transition-colors hover:text-white hover:bg-rose-500 hover:rounded">
+          Registrar una mascota</a
+        >
+
+        <a
           (click)="logout()"
           class="block px-3 py-2 rounded-2xl font-semibold text-lg text-purple-900 transition-colors hover:text-white hover:bg-rose-500 hover:rounded"
         >

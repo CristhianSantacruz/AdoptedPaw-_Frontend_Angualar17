@@ -1,7 +1,7 @@
 import {FileDto} from "./FileDto";
 
 export interface PetAnimalDto {
-  id? : string,
+  id : string,
   name : string,
   userId : string,
   age : string,

@@ -71,12 +71,12 @@ export class RegisterDogComponent {
       })
     }
     else {
-      Swal.fire({
+      await Swal.fire({
         title: "Opps ",
-        text : "Hay un error en el formulario",
-        icon : "info",
-        showConfirmButton : false,
-        timer : 1000,
+        text: "Hay un error en el formulario",
+        icon: "info",
+        showConfirmButton: false,
+        timer: 1000,
       })
     }
   }
