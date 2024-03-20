@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {PetService} from "../../../../core/service/pet-service.service";
-import {PetAnimalDto, PetSaveDto, petSaveDtoToString} from "../../../../core/dto/PetAnimalDto";
+import { PetDto, petSaveDtoToString} from "../../../../core/dto/PetAnimalDto";
 import {TokenService} from "../../../../core/service/token.service";
 import Swal from "sweetalert2";
 import {FileService} from "../../../../core/service/file.service";
@@ -35,7 +35,7 @@ export class RegisterDogComponent {
 
   public async registerPet() {
     if(this.registerForm.valid){
-      let petDto : PetSaveDto= {
+      let petDto : PetDto= {
         userId : this.tokenService.getInfoToken().userId,
         name : this.registerForm.value.namePet,
         age : this.registerForm.value.agePet,

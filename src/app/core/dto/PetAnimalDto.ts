@@ -17,7 +17,7 @@ export interface PetAnimalDto {
   userEmail? : string,
 }
 
-export interface PetSaveDto {
+export interface PetDto {
   name : string,
   raze : string,
   age : string,
@@ -41,7 +41,7 @@ export interface PetSaveResponseDto {
   contactPet : string,
   imageForPet? : FileDto,
 }
-export function petSaveDtoToString(pet: PetSaveDto): string {
+export function petSaveDtoToString(pet: PetDto): string {
   return `PetSaveDto {
     name: ${pet.name},
     raze: ${pet.raze},

@@ -17,6 +17,7 @@ export class NavbarComponent {
 
   menuVisibleResponsive: boolean = false;
   nameUser : string  = ""
+  rolUser : string
 
   toggleMenu(){
     this.menuVisibleResponsive = !this.menuVisibleResponsive
@@ -24,6 +25,7 @@ export class NavbarComponent {
   tokenService = inject(TokenService)
   constructor() {
     this.nameUser = this.tokenService.getInfoToken().fullName
+    this.rolUser = this.tokenService.getInfoToken().rol.toUpperCase()
   }
 
   route = inject(Router)

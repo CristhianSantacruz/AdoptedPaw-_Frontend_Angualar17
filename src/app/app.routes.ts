@@ -10,6 +10,7 @@ import {authGuardWithAuth, authGuardWithoutAuth} from "./core/guards/auth-guard.
 import {AdoptionComponent} from "./features/home/pages/adoption/adoption.component";
 import {RegisterDogComponent} from "./features/home/pages/register-dog/register-dog.component";
 import {AllRegisterDogComponent} from "./features/home/pages/watch-registers/register-dog.component";
+import {WatchAdoptionsComponent} from "./features/home/pages/watch-adoptions/watch-adoptions.component";
 
 
 export const routes: Routes = [
@@ -55,6 +56,11 @@ export const routes: Routes = [
         path:  'register-dog',
         title : "Register Dog",
         component: RegisterDogComponent
+      },
+      {
+        path: 'adoptions',
+        title : 'All Adoptions',
+        component: WatchAdoptionsComponent
       }
     ],
   },

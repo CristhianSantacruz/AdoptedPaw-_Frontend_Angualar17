@@ -1,6 +1,43 @@
-<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+<div class="flex justify-center min-h-1 mb-0">
+  <div class="m-2 max-w-screen-xl w-screen overflow-hidden rounded-lg border border-gray-200 shadow-lg text-gray-700">
+    <details open class="overflow-hidden rounded-lg border border-gray-200 text-gray-700">
+      <summary class="flex cursor-pointer select-none items-center justify-between bg-rose-50 px-5 py-3 ">
+        <span class="text-sm font-medium"> Toggle Filters </span>
+        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </summary>
+
+      <form [formGroup]="this.filterForm" action="" class="flex flex-col lg:flex-row border-t border-gray-200 justify-center lg:justify-between items-center mb-3">
+        <div class="max-w-sm mx-auto mb-3 mt-2 lg:mb-0 ">
+          <label for="countries1" class="block mb-2 text-sm font-medium text-gray-900 ">Filtro por Tipo</label>
+          <select formControlName="filterByPetType" id="countries1"  class="bg-rose-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   ">
+
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+          </select>
+        </div>
+        <div class="max-w-sm mx-auto">
+          <label for="countries2" class="block mb-2 text-sm font-medium text-gray-900 ">Filtro por Tamano</label>
+          <select formControlName="filterByPetSize" id="countries2"  class="bg-rose-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+
+            <option value="PEQUEÑO">Pequeño</option>
+            <option value="MEDIANO">Mediano</option>
+            <option value="GRANDE">Grande</option>
+          </select>
+        </div>
+      </form>
+      <div class="flex justify-between border-t border-gray-200 px-3 py-3">
+        <button name="reset" (click)="resetFilter()" type="button" class="rounded text-xs font-medium text-rose-800 underline">Reset All</button>
+        <button (click)="applyFilters()" name="commit" type="button" class="rounded bg-rose-600 px-5 py-3 text-xs font-medium text-white active:scale-95">Apply Filters</button>
+      </div>
+    </details>
+  </div>
+</div>
+
+<div class="max-w-screen-xl -mt-6 mx-auto p-5 sm:p-10 md:p-16">
   <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
-    @for(pet of listPets ; track  pet.id ){
+    @for(pet of filteredPets ; track  pet.id ){
       <div
         class="border-r border-b border-l border-gray-400 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
         <img [src]="this.baseUrlImage+pet.imageForPet?.id"
@@ -59,6 +96,10 @@
     }
   </div>
 </div>
-
-
+<div class="flex flex-col min-h-screen m-5 ">
+@if(this.filteredPets.length <= 0) {
+  <div class="flex justify-center items-center bg-black rounded-2xl">
+    <p class="font-bold italic text-center text-white p-16">No hay mascotas con estas caracteristicas</p>
+  </div>
+}</div>
 

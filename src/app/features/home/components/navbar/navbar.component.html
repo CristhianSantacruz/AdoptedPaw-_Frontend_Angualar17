@@ -17,6 +17,10 @@
                    routerLinkActive = "active">Mis adopciones</a></li>
             <li><a class="hover:text-green-400 flex-col" routerLink = "/home/register-dog"
                    routerLinkActive = "active">Registrar 🐕</a></li>
+            @if(rolUser == 'ADMIN'){
+              <li><a class="hover:text-green-400 flex-col" routerLink = "/home/adoptions"
+                     routerLinkActive = "active">Adopciones Totales 🧑‍🤝🐕‍🦺‍</a></li>
+            }
           </ul>
           <!-- Header Icons -->
           <div class="hidden xl:flex items-center space-x-5 items-center">
@@ -70,13 +74,21 @@
           class="block px-3 py-2 rounded-2xl font-semibold text-lg text-purple-900 transition-colors hover:text-white hover:bg-rose-500 hover:rounded">
           Registrar una mascota</a
         >
-
+        @if(rolUser == 'ADMIN'){
+        <a
+          (click)="toggleMenu()"
+          routerLink = "/home/adoptions"
+          routerLinkActive = "active"
+          class="block px-3 py-2 rounded-2xl font-semibold text-lg text-purple-900 transition-colors hover:text-white hover:bg-rose-500 hover:rounded">
+          Adopciones totales</a
+        >}
         <a
           (click)="logout()"
           class="block px-3 py-2 rounded-2xl font-semibold text-lg text-purple-900 transition-colors hover:text-white hover:bg-rose-500 hover:rounded"
         >
           Logout</a
         >
+
       </div>
     }
 

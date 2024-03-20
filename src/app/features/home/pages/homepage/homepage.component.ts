@@ -6,15 +6,18 @@ import Swal from "sweetalert2";
 import {environment} from "../../../../../environments/environment.development";
 import {TokenService} from "../../../../core/service/token.service";
 import {AdoptionService} from "../../../../core/service/adoption.service";
-import {AdoptionDto} from "../../../../core/dto/Adoption";
 import {lastValueFrom} from "rxjs";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AdoptionDtoRequest} from "../../../../core/dto/Adoption";
 
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
   imports: [
-    NavbarComponent
+    NavbarComponent,
+    FormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
@@ -24,15 +27,24 @@ export class HomepageComponent {
   public  baseUrl : string = environment.baseUrl
   public baseUrlImage : string = this.baseUrl +"/file/"
   public listPets : Array<PetAnimalDto>;
-
+  public filteredPets : Array<PetAnimalDto>;
+  public isDropdownVisible: boolean = false;
   private userId : string;
+  public filterForm : FormGroup
 
-    constructor(private petService : PetService,private tokenService : TokenService, private adoptionService : AdoptionService) {
+    constructor(private formBuilder : FormBuilder,private petService : PetService,private tokenService : TokenService, private adoptionService : AdoptionService) {
+      this.filterForm = this.formBuilder.group({
+        filterByPetType : [''],
+        filterByPetSize : [''],
+      })
+
       this.listPets =  []
+      this.filteredPets = []
       this.userId = this.tokenService.getInfoToken().userId
       this.petService.getAllPets().subscribe({
          next : value => {
            this.listPets = value
+           this.filteredPets = [...this.listPets]
            console.log(this.listPets);
          },error : err =>{
            Swal.fire({
@@ -45,11 +57,31 @@ export class HomepageComponent {
          }
        })
     }
+  //PRRUEBA DE LOS FILTROS
 
-  protected readonly Component = Component;
+  applyFilters(): void {
+
+    const petType = this.filterForm.controls['filterByPetType'].value
+    const petSize = this.filterForm.controls['filterByPetSize'].value
+    if(petType){
+      this.filteredPets = this.listPets.filter(pet => pet.petType.toLowerCase() === petType.toLowerCase())
+    }
+    if(petSize){
+      this.filteredPets = this.listPets.filter(pet => pet.size.toLowerCase() === petSize.toLowerCase())
+    }
+    if(petSize.isEmpty && petType.isEmpty){
+      this.filteredPets = [...this.listPets]
+      return
+    }
+
+  }
+  resetFilter(): void{
+    this.filteredPets = [...this.listPets]
+    this.filterForm.reset()
+  }
 
   public adoptionByUser(petId : string) {
-      let adoptionSaveDto : AdoptionDto = {
+      let adoptionSaveDto : AdoptionDtoRequest = {
         adoptedByUserId : this.userId,
         petId : petId
       }
