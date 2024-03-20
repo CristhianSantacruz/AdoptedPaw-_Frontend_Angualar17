@@ -25,11 +25,10 @@ export class AllRegisterDogComponent {
       this.userId = tokenService.getInfoToken().userId
       this.userName = tokenService.getInfoToken().fullName
       this.userEmail = tokenService.getInfoToken().email
-      console.log("DNI "+this.userId)
        this.userService.getAllRegisterDog(this.userId).subscribe(
          {next : value => {
                this.listRegisterDog  = value
-               console.log("Registros",this.listRegisterDog)
+
           },error : err => {
              Swal.fire({
                icon: "error",

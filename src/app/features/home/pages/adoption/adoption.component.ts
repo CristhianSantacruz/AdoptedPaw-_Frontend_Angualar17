@@ -25,7 +25,6 @@ export class AdoptionComponent {
        .subscribe({
          next : value => {
             this.listAdoptionPets = value
-            console.log(this.listAdoptionPets)
          },error : err => {
            Swal.fire({
              icon: "error",

@@ -19,8 +19,6 @@ export class AuthenticationService {
   public signIn(authDto : AuthLoginDto) : Observable<AuthResponseDto>{
     return this.httpClient.post<AuthResponseDto>(this.baseUrl+"/auth/sign-in",authDto).pipe(
       tap( response=> {
-        console.log(response.jwt)
-        console.log(jwtDecode(response.jwt))
         this.tokenService.saveToken(response.jwt)
 
       })

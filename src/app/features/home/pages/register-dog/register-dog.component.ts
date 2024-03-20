@@ -45,11 +45,11 @@ export class RegisterDogComponent {
         description : this.registerForm.value.descriptionPet,
         contactPet : this.registerForm.value.contactPet,
       }
-      console.log("Animal que se va a registrar"+petSaveDtoToString(petDto))
+
        this.petService.savePet(petDto).subscribe({
         next : async value => {
           this.idDogRegister = value.id
-          console.log("La id del perro :"+this.idDogRegister)
+
           await Swal.fire({
             title: "Sucess",
             icon : "success",

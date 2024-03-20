@@ -21,7 +21,7 @@ export class WatchAdoptionsComponent {
     this.adoptionService.getAllAdoptions().subscribe({
       next : value => {
         this.listAdoptions = value
-        console.log(value)
+
       },error : err => {
         Swal.fire({
           icon : "error",

@@ -31,11 +31,10 @@ export class LoginComponent {
         email : this.loginForm.value.emailUser,
         password : this.loginForm.value.passwordUser
       }
-      console.log("Estos son los datos del usuario",authLogin)
+
       await lastValueFrom(this.authService.signIn(authLogin))
         .then(async  result => {
           this.authLoginToken = result.jwt
-          console.log(result.jwt)
          await this.succesLoginGreat()
         })
         .catch(error=>{

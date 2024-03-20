@@ -45,7 +45,6 @@ export class HomepageComponent {
          next : value => {
            this.listPets = value
            this.filteredPets = [...this.listPets]
-           console.log(this.listPets);
          },error : err =>{
            Swal.fire({
              icon: "error",
